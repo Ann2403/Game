@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-image: url(img/background.jpg);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+button {
+    width: 12%;
+    height: 14%;
+    border-radius: 50%;
+    font-size: 3vw;
+    font-style: italic;
+}
+
+.startComet a{
+    text-decoration: none;
+    color: #121fbf;
+    font-weight: bold;
+}
+
+.startCards a {
+    text-decoration: none;
+    color: white;
+}
+
+.startCards {
+    background-image: url(img/buttonCards.jpg);
+    background-size: cover;
+    margin-left: 10%;
+}
+
+.startComet {
+    background-image: url(img/buttonComet.png);
+    background-size: cover;
+    
+}
+
