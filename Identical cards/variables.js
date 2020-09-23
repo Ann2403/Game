@@ -15,3 +15,7 @@ let resetBtn = document.querySelector("#reset-btn");
 let countCards = 16;
 //создаем массив для хранения номера изображения карточек
 let images = [];
+//создаем переменную для хранения количсетва удаленных карточек
+let deletedCard = 0;
+//создаем пустой массив для хранения выбранных карточек
+let selected = [];
