@@ -1,0 +1,91 @@
+#full {
+    height: 800px;
+    width: 800px;
+    background-image: url(img/background.jpg);
+    margin: 0 auto;
+    position: relative;
+    border: 4px groove #6309F7;
+    /*overflow: hidden;*/
+}
+
+#start-block {
+    width: 100%;
+    height: 100%;
+    background-image: url(img/startBlock.jpg);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#start-block button {
+    margin: 335px auto;
+    display: block;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: #3616b530;
+    font-size: 30px;
+}
+
+#info-block {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: block;
+    background: #220DE7;
+    width: 150px;
+    height: 80px;
+    font-size: 15px;
+
+}
+
+.lifes {
+    position: absolute;
+    position: 50px;
+    top: 10px;
+    right: 10px;
+    display: block;
+}
+
+.lifes span {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #0D08F0;
+    border: 3px outset #79E5F8;
+    display: block;
+    float: left;
+}
+
+#ship {
+	height: 120px;
+    width: 56px;
+    position: absolute;
+    bottom: 0;
+    left: 372px;
+    display: block;
+    background-image: url(img/ship.png)
+}
+
+#asteroid {
+	height: 30px;
+    width: 30px;
+    position: absolute;
+    top: 0px;
+    left: 350px;
+    display: none;
+    transition: all 1s;
+    background-image: url(img/asteroid.png);
+}
+
+#game-over {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #0c45e4;
+    color: #060100;
+    text-align: center;
+    font-size: 40px;
+}
