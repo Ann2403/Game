@@ -5,10 +5,9 @@
     margin: 0 auto;
     position: relative;
     border: 4px groove #6309F7;
-    /*overflow: hidden;*/
 }
 
-#start-block {
+/*#start-block {
     width: 100%;
     height: 100%;
     background-image: url(img/startBlock.jpg);
@@ -25,18 +24,19 @@
     border-radius: 50%;
     background: #3616b530;
     font-size: 30px;
-}
+}*/
 
-#info-block {
+.info_block {
     position: absolute;
     top: 10px;
     left: 10px;
     display: block;
-    background: #220DE7;
     width: 150px;
     height: 80px;
-    font-size: 15px;
-
+    font-size: 25px;
+    color: #03c3fd;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .lifes {
@@ -76,14 +76,16 @@
     background-image: url(img/asteroid.png);
 }
 
-#game-over {
+.game_over {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    background: #0c45e4;
-    color: #060100;
+    background-image: url(img/startBlock.jpg);
+    color: #915dd6;
     text-align: center;
     font-size: 40px;
+    font-style: italic;
+    font-weight: bold;
 }

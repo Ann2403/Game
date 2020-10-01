@@ -48,8 +48,6 @@ function positionAsteroid() {
     } while (!unic);
     //задаем исходное положение астероида относительно левого края
     asteroid.style.left = positionAsteroid + "px";
-    console.log(a);
-    console.log(allAsteroids.length);
 }
 
 //функция падения астероида
