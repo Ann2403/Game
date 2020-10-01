@@ -57,7 +57,7 @@
     float: left;
 }
 
-#ship {
+.ship {
 	height: 120px;
     width: 56px;
     position: absolute;
@@ -67,13 +67,11 @@
     background-image: url(img/ship.png)
 }
 
-#asteroid {
+.asteroid {
 	height: 30px;
     width: 30px;
     position: absolute;
-    top: 0px;
-    left: 350px;
-    display: none;
+    top: 50px;
     transition: all 1s;
     background-image: url(img/asteroid.png);
 }

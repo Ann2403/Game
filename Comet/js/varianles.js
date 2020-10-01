@@ -5,4 +5,8 @@ var full = document.querySelector("#full");
 //жизней на игровом поле
 var lifes,
 //корабля
-ship;
+ship,
+//астероида
+asteroid = null,
+//массив хранящий созданые астероиды
+allAsteroids = [];
