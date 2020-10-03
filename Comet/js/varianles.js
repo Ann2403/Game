@@ -15,4 +15,6 @@ ship,
 //астероида
 asteroid = null,
 //массив хранящий созданые астероиды
-allAsteroids = [];
+allAsteroids = [],
+//кнопку перезапуска игры
+restartButton;

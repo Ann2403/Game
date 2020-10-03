@@ -2,38 +2,55 @@
                         БЛОК ИНИЦИАЛИЗАЦИИ ПЕРЕМЕННЫХ
 **************************************************************************/
 //задаем начальное количество жизней
-var quantityLifes = 0;
+var quantityLifes = 5;
 
 
 /**************************************************************************
                             БЛОК ВЫЗОВА ФУНКЦИЙ
 **************************************************************************/
-//создаем информационный блок с таймером
-creatureInfoBlock();
-//запускаем таймер
-timerGame();
-//создаем блок с жизнями
-creatureLifes();
+function startGame() {
+    //создаем информационный блок с таймером
+    creatureInfoBlock();
+    //запускаем таймер
+    timerGame();
+    //создаем блок с жизнями
+    creatureLifes();
 
-//создаем корабль
-creatureShip();
-//делаем его подвижным (вешаем обработчик события на клавиатуру)
-addEventListener('keydown', moveRect);
+    //создаем корабль
+    creatureShip();
+    //делаем его подвижным (вешаем обработчик события на клавиатуру)
+    addEventListener('keydown', moveRect);
 
-//создаем астероиды
-asteroids();
-//приводим все астероиды в движение
-getAsteroids();
+    //создаем астероиды
+    asteroids();
+    //приводим все астероиды в движение
+    getAsteroids();
 
-//каждые 1,5 секунды 
-setInterval(() => {
-    if (status != 'over') {
-        console.log(status);
-        //очищаем массив с астероидов
-        allAsteroids = [];
-        //создаем астероиды
-        asteroids();
-        //приводим их в движение
-        getAsteroids();
-    }
-}, 1500);
+    //каждые 1,5 секунды 
+    let newAsteroids = setInterval(() => {
+        //если статус игры не "завершен"
+        if (status != 'over') {
+            //очищаем массив с астероидов
+            allAsteroids = [];
+            //создаем астероиды
+            asteroids();
+            //приводим их в движение
+            getAsteroids();
+        } else {
+            clearInterval(newAsteroids);
+        }
+    }, 2000); 
+}
+
+//запускаем игру
+startGame();
+
+
+function restartGame() {
+    min = 0;
+    sec = 0;
+    quantityLifes = 5;
+    allAsteroids = [];
+    startGame();
+    status = 'play';
+}

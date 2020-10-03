@@ -14,17 +14,18 @@
     position: absolute;
     top: 0;
     left: 0;
-}
+}*/
 
-#start-block button {
-    margin: 335px auto;
+.restart {
+    margin: 275px auto;
     display: block;
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background: #3616b530;
     font-size: 30px;
-}*/
+}
+
 
 .info_block {
     position: absolute;

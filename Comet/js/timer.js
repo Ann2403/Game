@@ -37,8 +37,6 @@ function timerGame() {
         if (quantityLifes == 0) {
             //останавливаем таймер
             clearInterval(clock);
-            //вызываем функция завершения игры
-            over();
         }
     }, 1000);
 }
