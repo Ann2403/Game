@@ -61,7 +61,12 @@ function moveAsteroid(getAsteroid) {
     setInterval(() => {
         //увеличиваем отступ астероида сверху на 100 px
         getAsteroid.style.top = getAsteroid.offsetTop + 100 + "px";
-        crashAsteroid(getAsteroid); 
+        crashAsteroid(getAsteroid, ship); 
+        if(shots.length > 0) {
+            shots.forEach(function(value) {
+                crashAsteroid(getAsteroid, value);
+            });
+        }
         //если отступ превышает 720 рх
         if (getAsteroid.offsetTop > 720) {
             //удаляем астероид

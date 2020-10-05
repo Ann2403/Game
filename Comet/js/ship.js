@@ -22,7 +22,7 @@ function moveRect(e) {
             //если отступ слева больше 12 и менее 733
             if(left > 12 && left < 733) 
             //отнимаем от него 72 пиклеся
-            ship.style.left = left - 72 + "px";
+            ship.style.left = left - 20 + "px";
             //прерываем цикл
             break;
         // если нажата клавиша вправо
@@ -30,7 +30,13 @@ function moveRect(e) {
             //если отступ слева больше 11 и менее 732
             if(left > 11 && left < 732)
             //прибавляем к нему 72 пикселя
-            ship.style.left = left + 72 + "px";
+            ship.style.left = left + 20 + "px";
+            //прерываем цикл
+            break;
+        // если нажата клавиша вверх
+        case 38:  
+            //вызываем функцию выстрела
+            fire();
             //прерываем цикл
             break;
     }
