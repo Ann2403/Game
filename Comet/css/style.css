@@ -69,12 +69,11 @@
 }
 
 .asteroid {
-	height: 30px;
-    width: 30px;
+	height: 45px;
+    width: 45px;
     position: absolute;
     top: 50px;
-    transition: all 1s;
-    background-image: url(img/asteroid.png);
+    background-image: url(img/asteroid2.png);
 }
 
 .shot {

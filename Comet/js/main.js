@@ -26,17 +26,18 @@ function startGame() {
     //приводим все астероиды в движение
     getAsteroids();
 
-    //каждые 1,5 секунды 
+    //каждые 2 секунды 
     let newAsteroids = setInterval(() => {
         //если статус игры не "завершен"
         if (status != 'over') {
             //очищаем массив с астероидов
-            allAsteroids = [];
+            allAsteroids.length = 0;
             //создаем астероиды
             asteroids();
             //приводим их в движение
             getAsteroids();
         } else {
+            //останавливаем интервал создания новых астероидов
             clearInterval(newAsteroids);
         }
     }, 2000); 
@@ -45,12 +46,17 @@ function startGame() {
 //запускаем игру
 startGame();
 
-
+//функция перезапуска игры
 function restartGame() {
+    //обновляем время начала игры
     min = 0;
     sec = 0;
+    //количество жизней
     quantityLifes = 5;
-    allAsteroids = [];
+    //массив с астероидами
+    allAsteroids.length = 0;
+    //запускаем функцию старта игры
     startGame();
+    //присваиваем статус 'play'
     status = 'play';
 }

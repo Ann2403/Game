@@ -42,7 +42,7 @@ function positionAsteroid() {
             //определяем позиции астероидов из массива
             let positionNowAsteroid = parseInt(allAsteroids[a].style.left);
             //если позиция нового астероида пересикается с уже существующими
-            if(positionAsteroid < (positionNowAsteroid + 30) && positionAsteroid > (positionNowAsteroid - 30)) {
+            if(positionAsteroid < (positionNowAsteroid + asteroid.offsetWidth) && positionAsteroid > (positionNowAsteroid - 30)) {
                 //задаем что такое число уже было
                 unic = false;
                 //и выходим с перебора массива
@@ -58,17 +58,27 @@ function positionAsteroid() {
 //функция падения астероида
 function moveAsteroid(getAsteroid) {
     //каждые 10 милисекунд 
-    setInterval(() => {
-        //увеличиваем отступ астероида сверху на 100 px
-        getAsteroid.style.top = getAsteroid.offsetTop + 100 + "px";
+    let moveIntervalAsteroid = setInterval(() => {
+        //увеличиваем отступ астероида сверху на 1 px
+        getAsteroid.style.top = getAsteroid.offsetTop + 1 + "px";
+        //вызываем функцию проверки на столкновение астероида с кораблем
         crashAsteroid(getAsteroid, ship); 
+        //если вдлина массива с пулями больше 0
         if(shots.length > 0) {
+            //перебираем все пули 
             shots.forEach(function(value) {
+                //и вызываем функцию проверки на столкновение астероида с пулей
                 crashAsteroid(getAsteroid, value);
             });
         }
+        // если id астероида explode - вызвалась функция взрыва
+        if (getAsteroid.id == 'explode' ) {
+            //останавливаем движение астероида
+            clearInterval(moveIntervalAsteroid);
         //если отступ превышает 720 рх
-        if (getAsteroid.offsetTop > 720) {
+        } else if (getAsteroid.offsetTop > 720) {
+            //останавливаем движение астероида
+            clearInterval(moveIntervalAsteroid);
             //удаляем астероид
             getAsteroid.remove();
         }
