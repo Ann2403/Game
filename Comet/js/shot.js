@@ -10,6 +10,10 @@ function creatureShot() {
     shot.style.left = ship.offsetLeft + 23 + 'px';
     //добавляем ее на поле
     full.appendChild(shot);
+    setTimeout(() => {
+        shot.style.height = '36px';
+        shot.style.background = "url(css/img/shot.png)";
+    }, 500);
     //и в массив для хранение выстрелов
     shots.push(shot);
     //вызываем функция движения пули
