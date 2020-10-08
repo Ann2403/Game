@@ -41,5 +41,5 @@ function moveShot(getShot) {
             //останавливаем интервал движения пули
             clearInterval(shotsMove);
         }
-    }, 10);
+    }, 5);
 }

@@ -9,9 +9,9 @@ function creatureAsteroid() {
 }
 
 //функция определения количества астероидов
-function asteroids() {
+function asteroids(min, max) {
     //определяем рандомное число астероидов
-    let quantityAsteroid = random(1, 3);
+    let quantityAsteroid = random(min, max);
     //указываем текущее количество астероидов
     let currentQuantityAsteroid = 0;
     //пока текущее количество астероидов меньше заданого
@@ -20,6 +20,7 @@ function asteroids() {
         creatureAsteroid();
         //заносим созданый астероид в массив
         allAsteroids[currentQuantityAsteroid] = asteroid;
+        console.log(asteroid);
         //определяем исходную позицию астероида
         positionAsteroid();
         //увеличиваем текущее их количество 
@@ -57,6 +58,16 @@ function positionAsteroid() {
 
 //функция падения астероида
 function moveAsteroid(getAsteroid) {
+    let speed;
+    if(min < 1) {
+        speed = 30;
+    } else if (min == 0 && sec == 30) {
+        speed = 25;
+    } else if (min == 1 && sec < 30) {
+        speed = 15;
+    } else {
+        speed = 10;
+    }
     //каждые 10 милисекунд 
     let moveIntervalAsteroid = setInterval(() => {
         //увеличиваем отступ астероида сверху на 1 px
@@ -82,7 +93,7 @@ function moveAsteroid(getAsteroid) {
             //удаляем астероид
             getAsteroid.remove();
         }
-    }, 10);
+    }, speed);
 }
 
 //функция запуска движения всех астероидов
@@ -94,4 +105,4 @@ function getAsteroids() {
         //удаляем с массива астероид
         delete allAsteroids[i];
     });
-}
+}   

@@ -8,6 +8,13 @@ function createCards(colCards) {
 		li.id = i;
 		//добавляем карточки на поле
 		cardsField.appendChild(li);
+		//если уровень игры 2 и номер карточки 12, либо уровень-5 и номер-24
+		if(level == 2 && i == 12 || level == 5 && i == 24) {
+			//получаем данную карточку
+			console.log(document.getElementsByTagName('li')[i]);
+			//даем ей отступ равный ширине карточки
+			document.getElementsByTagName('li')[i].style.marginLeft = '100px';
+		}
 	}
 	addImg(colCards);
 }
@@ -26,7 +33,7 @@ function addImg(colCards) {
 			//генерируем случайное число от 1 до количества карточек
 			n = Math.floor(Math.random() * colCards + 1);
 			//перебираем массив с карточек
-		    for (a = 0; a < colCards; a++) {
+			for (a = 0; a < colCards; a++) {
 				//если сгенерированое число уже занесено в массив
 				if (n == images[a]) {
 					//задаем что такое число уже было
@@ -34,7 +41,7 @@ function addImg(colCards) {
 					//и выходим с перебора массива
 					break;
 				}
-			  }
+			}
 		//повторяем генерацию числа
 		} while (!unic);
 		//добавляем уникальное число в массив
@@ -51,7 +58,6 @@ function addImg(colCards) {
 			//отнимаем от него половину количества карточек
 			images[i] = images[i] - (colCards/2);
 		}
-		console.log(images[i]);
 		//переходим к следующей итерации
 		i++;
 	}
@@ -60,7 +66,7 @@ function addImg(colCards) {
 //вешаем обработчик события (клик) на карточки
 cardsField.addEventListener('click', function(event) {
 	//если выбрано меньше 2 карточек
-	if(selected.length > 2) {
+	if(selected.length < 2) {
 		//выбираем элемент на которую был сделан клик
 		let element = event.target;
 		//проверяем элемент на соответсвие тегу LI и отсутствие класса "active"
@@ -73,7 +79,7 @@ cardsField.addEventListener('click', function(event) {
 			//хранится в массиве images под номером ячейки соответсвующей его id
 			let img = images[element.id];
 			//присваиваем ему картинку
-			element.style.background = "url(images/" + img + ".png)";
+			element.style.background = "url(images/" + img + ".jpg)";
 			//если выбрано 2 элемента
 			if(selected.length == 2) {
 				//если значение первой выбранной карточки в массиве images равно второй карточке
@@ -98,19 +104,17 @@ function refreshCards() {
 		//убираем имя класса
 		cardsField.children[i].className = "";
 		//вешаем картинку "закрытой" карточки
-		cardsField.children[i].style.backgroundImage = 'url("images/closed.jpg")';
+		//cardsField.children[i].style.backgroundImage = 'url("images/closed.jpg")';
 	}
 	//очищаем массив с выбраными карточками
 	selected = [];
-	//если количество удаленых карточек равна общему их количеству
+	//если количество удаленых карточек равна общему их количеству и уровень достиг последнего
 	if(deletedCard == countCards) {
-		//отображаем блок окончания игры
-		resetBlock.style.display = "block";
-	}
+		if (level == 5) {
+			//отображаем блок окончания игры победителя
+			win();
+		}
+		//запускаем новый уровень
+		newLevel();
+	} 
 }
-
-//вешаем обработчик события (клик) на кнопку "Restart"
-resetBtn.addEventListener('click', function() {
-	//перезапускаем игру
-	location.reload();
-});

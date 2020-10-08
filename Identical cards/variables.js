@@ -2,20 +2,24 @@
                     ПОЛУЧЕНИЕ ЭЛЕМЕНТОВ СО СТРАНИЦЫ
 *************************************************************************/
 //блок с карточками
-let cardsField = document.querySelector("#cards");
+let cardsField = document.querySelector(".cards"),
 //блок окончания игры
-let resetBlock = document.querySelector("#reset");
+resetBlock = document.querySelector("#win"),
+//текст блока
+resetText = document.querySelector('#text'),
 //кнопку перезапуска игры
-let resetBtn = document.querySelector("#reset-btn");
+resetBtn = document.querySelector("#reset-btn");
 
 /*************************************************************************
                     ИНИЦИАЛИЗАЦИЯ ПЕРЕМЕННЫХ
 *************************************************************************/
 //задаем количество карточек
-let countCards = 16;
+let countCards = 16,
 //создаем массив для хранения номера изображения карточек
-let images = [];
+images = [],
 //создаем переменную для хранения количсетва удаленных карточек
-let deletedCard = 0;
+deletedCard = 0,
 //создаем пустой массив для хранения выбранных карточек
-let selected = [];
+selected = [],
+//создаем переменную для отслеживания уровня игры
+level = 1;
