@@ -12,7 +12,7 @@ function creatureShot() {
     full.appendChild(shot);
     setTimeout(() => {
         shot.style.height = '36px';
-        shot.style.background = "url(css/img/shot.png)";
+        shot.style.background = "url(css/img/shot-min.png)";
     }, 500);
     //и в массив для хранение выстрелов
     shots.push(shot);

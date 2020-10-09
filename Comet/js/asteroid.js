@@ -20,7 +20,6 @@ function asteroids(min, max) {
         creatureAsteroid();
         //заносим созданый астероид в массив
         allAsteroids[currentQuantityAsteroid] = asteroid;
-        console.log(asteroid);
         //определяем исходную позицию астероида
         positionAsteroid();
         //увеличиваем текущее их количество 
