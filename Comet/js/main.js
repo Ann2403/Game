@@ -22,11 +22,11 @@ function startGame() {
     addEventListener('keydown', moveRect);
 
     //создаем астероиды
-    asteroids();
+    asteroids(2, 5);
     //приводим все астероиды в движение
     getAsteroids();
 
-    //каждые 1.5 секунды 
+    //каждые 2 секунды 
     let newAsteroids = setInterval(() => {
         //если статус игры не "завершен"
         if (status != 'over') {

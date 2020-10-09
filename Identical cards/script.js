@@ -84,14 +84,17 @@ cardsField.addEventListener('click', function(event) {
 			if(selected.length == 2) {
 				//если значение первой выбранной карточки в массиве images равно второй карточке
 				if(images[selected[0].id] == images[selected[1].id]) {
-					//скрываем обе карточки
-					selected[0].style.visibility = "hidden";
-					selected[1].style.visibility = "hidden";
+					setTimeout(() => {
+						//скрываем обе карточки
+						selected[0].style.visibility = "hidden";
+						selected[1].style.visibility = "hidden";
+					}, 1000);
+					
 					//увеличиваем количество удаленных карточек на 2
 					deletedCard = deletedCard + 2;
 				}
-				//через 6 мс вызываем функцию refreshCards
-				setTimeout(refreshCards, 600);
+				//через 1 с вызываем функцию refreshCards
+				setTimeout(refreshCards, 1000);
 			}
 		}
 	}
@@ -104,7 +107,7 @@ function refreshCards() {
 		//убираем имя класса
 		cardsField.children[i].className = "";
 		//вешаем картинку "закрытой" карточки
-		//cardsField.children[i].style.backgroundImage = 'url("images/closed.jpg")';
+		cardsField.children[i].style.backgroundImage = 'url("images/closed.jpg")';
 	}
 	//очищаем массив с выбраными карточками
 	selected = [];
